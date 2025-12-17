@@ -1,0 +1,42 @@
+---Square Pattern---
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+
+---Right Angled Triangle Pattern---
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+
+---Number Triangle Pattern---
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+
+---Number Triangle Pattern---
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+
+---Inverted Right Angled Triangle Pattern---
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+
+---Inverted Number Triangle Pattern---
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 
+1 
+
