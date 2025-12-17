@@ -1,42 +1,53 @@
----Square Pattern---
-* * * * * 
-* * * * * 
-* * * * * 
-* * * * * 
-* * * * * 
+---Pyramid Pattern---
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
 
----Right Angled Triangle Pattern---
+---Inverted Pyramid Pattern---
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+
+---Diamond Pattern---
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+
+---Arrow Pattern---
 * 
 * * 
 * * * 
 * * * * 
 * * * * * 
-
----Number Triangle Pattern---
-1 
-1 2 
-1 2 3 
-1 2 3 4 
-1 2 3 4 5 
-
----Number Triangle Pattern---
-1 
-2 2 
-3 3 3 
-4 4 4 4 
-5 5 5 5 5 
-
----Inverted Right Angled Triangle Pattern---
-* * * * * 
 * * * * 
 * * * 
 * * 
 * 
+---Hollow Pyramid Pattern---
+        * 
+      *   * 
+    *       * 
+  *           * 
+* * * * * * * * * 
 
----Inverted Number Triangle Pattern---
-1 2 3 4 5 
-1 2 3 4 
-1 2 3 
-1 2 
-1 
+---Hollow Diamond Pattern---
+        * 
+      *   * 
+    *       * 
+  *           * 
+*               * 
+  *           * 
+    *       * 
+      *   * 
+        * 
 
