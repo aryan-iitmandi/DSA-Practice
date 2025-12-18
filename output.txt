@@ -1,42 +1,42 @@
----Square Pattern---
-* * * * * 
-* * * * * 
-* * * * * 
-* * * * * 
-* * * * * 
-
----Right Angled Triangle Pattern---
-* 
-* * 
-* * * 
-* * * * 
-* * * * * 
-
----Number Triangle Pattern---
+---Alternating 0-1 Pyramid Pattern---
 1 
-1 2 
-1 2 3 
-1 2 3 4 
-1 2 3 4 5 
+0 1 
+1 0 1 
+0 1 0 1 
+1 0 1 0 1 
 
----Number Triangle Pattern---
+---Number Crown Pattern---
+1                 1 
+1 2             2 1 
+1 2 3         3 2 1 
+1 2 3 4     4 3 2 1 
+1 2 3 4 5 5 4 3 2 1 
+
+---Increasing Number Pattern---
 1 
-2 2 
-3 3 3 
-4 4 4 4 
-5 5 5 5 5 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
 
----Inverted Right Angled Triangle Pattern---
-* * * * * 
-* * * * 
-* * * 
-* * 
-* 
+---Increasing Letter Pattern---
+A 
+A B 
+A B C 
+A B C D 
+A B C D E 
 
----Inverted Number Triangle Pattern---
-1 2 3 4 5 
-1 2 3 4 
-1 2 3 
-1 2 
-1 
+---Decreasing Letter Pattern---
+A B C D E 
+A B C D 
+A B C 
+A B 
+A 
+
+---Alpha Ramp Pattern---
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
 
