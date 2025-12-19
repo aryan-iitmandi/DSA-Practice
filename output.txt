@@ -1,56 +1,40 @@
----Alternating 0-1 Pyramid Pattern---
-1 
-0 1 
-1 0 1 
-0 1 0 1 
-1 0 1 0 1 
+---Diamond void pattern---
+* * * * * * * * * * 
+* * * *     * * * * 
+* * *         * * * 
+* *             * * 
+*                 * 
+*                 * 
+* *             * * 
+* * *         * * * 
+* * * *     * * * * 
+* * * * * * * * * * 
 
----Number Crown Pattern---
-1                 1 
-1 2             2 1 
-1 2 3         3 2 1 
-1 2 3 4     4 3 2 1 
-1 2 3 4 5 5 4 3 2 1 
+---butterfly pattern---
+*                 * 
+* *             * * 
+* * *         * * * 
+* * * *     * * * * 
+* * * * * * * * * * 
+* * * *     * * * * 
+* * *         * * * 
+* *             * * 
+*                 * 
 
----Increasing Number Pattern---
-1 
-2 3 
-4 5 6 
-7 8 9 10 
-11 12 13 14 15 
+---hollow rectangle pattern---
+* * * * * 
+*       * 
+*       * 
+*       * 
+* * * * * 
 
----Increasing Letter Pattern---
-A 
-A B 
-A B C 
-A B C D 
-A B C D E 
-
----Decreasing Letter Pattern---
-A B C D E 
-A B C D 
-A B C 
-A B 
-A 
-
----Alpha Ramp Pattern---
-A 
-B B 
-C C C 
-D D D D 
-E E E E E 
-
----Alpha hill Pattern---
-        A 
-      A B A 
-    A B C B A 
-  A B C D C B A 
-A B C D E D C B A 
-
----Alpha Triangle Pattern---
-E 
-D E 
-C D E 
-B C D E 
-A B C D E 
-
+---concentric square pattern---
+5 5 5 5 5 5 5 5 5 
+5 4 4 4 4 4 4 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 2 1 2 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 4 4 4 4 4 4 5 
+5 5 5 5 5 5 5 5 5 
