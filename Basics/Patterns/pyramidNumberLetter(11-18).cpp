@@ -80,6 +80,66 @@ void pattern16(int n){
     }cout << endl;
 }
 
+void pattern17(int n){
+    cout << "---Alpha hill Pattern---" << endl;
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=n-i; j++){
+            cout << "  ";
+        }
+        for(int j=1; j<=2*i-1; j++){
+            char ch = 'A';
+            if(j<=i){
+                cout << char(ch + j - 1) << " ";
+            }
+            else{
+                cout << char(ch + 2*i - j - 1) << " ";
+            }
+            if(ch >'Z') ch = 'A';
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+// void alphaHill(int n){
+//     cout << "---Alpha Hill Pattern---" << endl;
+
+//     for(int i = 1; i <= n; i++){
+
+//         // 1. Spaces
+//         for(int s = 1; s <= n - i; s++){
+//             cout << "  ";
+//         }
+
+//         // 2. Increasing letters
+//         char ch = 'A';
+//         for(int j=1; j<=i; j++){
+//             cout << ch << " ";
+//             ch++;
+//         }
+
+//         // 3. Decreasing letters
+//         ch -= 2;
+//         for(int j=1; j<=i-1; j++){
+//             cout << ch << " ";
+//             ch--;
+//         }
+
+//         cout << endl;
+//     }
+// }
+
+void pattern18(int n){
+    cout << "---Alpha Triangle Pattern---" << endl;
+    for(int i=1; i<=n; i++){
+        char startchar = 'A' - i + n;
+        for(int j=1; j<=i; j++){
+            cout << startchar++ << " ";
+            if(startchar>'Z') startchar = 'A';
+        }cout << endl;
+    }cout << endl;
+}
+
 int main(){
     int n;
     cin >> n;
@@ -89,5 +149,8 @@ int main(){
     pattern14(n);
     pattern15(n);
     pattern16(n);
+    pattern17(n);
+    // alphaHill(n);
+    pattern18(n);
     return 0;
 }
