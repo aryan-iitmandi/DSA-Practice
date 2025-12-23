@@ -16,16 +16,25 @@ void reverseArrayInBuilt(vector<int> &arr){
     reverse(arr.begin(), arr.end());
 }
 
+void reverseArrayRecursion(vector<int> &arr, int l, int r){
+    if(l >= r) return;
+    swap(arr[l], arr[r]);
+    reverseArrayRecursion(arr, l+1, r-1);
+}
+
 int main(){
     vector<int> arr;
     int ip;
+    
     while(cin >> ip){
         arr.push_back(ip);
     }
-    reverseArray(arr);
+    // reverseArray(arr);
+    reverseArrayRecursion(arr, 0, arr.size()-1);
+    // reverseArrayInBuilt(arr);
+
     for(auto it: arr){
         cout << it << " ";
     }
-    // reverseArrayInBuilt(arr);
     return 0;
 }
