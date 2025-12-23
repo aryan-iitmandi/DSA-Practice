@@ -61,7 +61,7 @@ void vector_example(){
     cout << "Vector v2: ";
     printVector(v2);
 
-    vector<int> v3(10); // Vector of size 10, default initialized
+    vector<int> v3(10); // Vector of size 10, default initialized with 0
     cout << "Vector v3 (default initialized): ";
     printVector(v3);
 

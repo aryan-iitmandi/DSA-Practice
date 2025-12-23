@@ -1,1 +1,2 @@
-1 4
+Max freq is 5 of element 1
+Min freq is 2 of element 4
