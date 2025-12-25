@@ -28,8 +28,8 @@ void pair_example(){
 }
 
 // Print vector function
-void printVector(const vector<int>& v){
-    for(int i : v){
+void printVector(const vector<int> &v){
+    for(auto i : v){
         cout << i << " ";
     }
     cout << endl << endl;
