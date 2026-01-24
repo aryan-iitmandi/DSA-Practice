@@ -1,8 +1,9 @@
 # ===============================
-# Local input / output files
+# Local input / output files /folders
 # ===============================
 input.txt
 output.txt
+/test
 
 # ===============================
 # Build directory (executables)
