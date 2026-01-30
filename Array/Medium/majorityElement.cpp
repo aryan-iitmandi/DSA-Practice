@@ -16,25 +16,7 @@ int majorityElement0(vector<int> &arr){
     return -1;
 }
 
-// int majorityElement1(vector<int> &arr){
-//     int candidate = -1, count = 0;
-
-//     for(auto num: arr){
-        
-//         if(count == 0){
-//             candidate = num;
-//             count = 1;
-//         }
-
-//         else if(num == candidate)
-//             count++;
-        
-//         else
-//             count--;
-//     }
-//     return candidate; // if majority is gaurenteed (>n/2)
-// }
-
+// boyer-moore voting algorithm
 // Time: O(n)
 // Space: O(1)
 int majorityElement2(vector<int> &arr){
@@ -47,20 +29,16 @@ int majorityElement2(vector<int> &arr){
             count = 1;
         }
 
-        else if(num == candidate)
-            count++;
+        else if(num == candidate)   count++;
         
-        else
-            count--;
+        else    count--;
     }
-    // return candidate; // if majority is not gaurenteed, verify it
+    // if majority is not gaurenteed, verify it
     count = 0;
     for(auto num: arr){
-        if(num == candidate)
-            count++;
+        if(num == candidate)    count++;
     }
-    if(count > arr.size() / 2) 
-        return candidate;
+    if(count > arr.size() / 2)  return candidate;
     return -1;
 }
 
