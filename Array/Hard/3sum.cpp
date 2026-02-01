@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Brute force
 // Time: O(n^3)
 // Space: O(k) k unique triplets
-vector<vector<int>> threeSum(vector<int> &arr){
+vector<vector<int>> threeSum0(vector<int> &arr){
     int n = arr.size();
     set<vector<int>> uniqueTriplets;
     for(int i=0; i<n; i++){
@@ -20,6 +21,7 @@ vector<vector<int>> threeSum(vector<int> &arr){
     return vector<vector<int>>(uniqueTriplets.begin(), uniqueTriplets.end());
 }
 
+// hashing (similar to 2-sum)
 // Time: O(n^2)
 // Space: O(n)
 vector<vector<int>> threeSum1(vector<int> &arr, int target){
@@ -42,6 +44,38 @@ vector<vector<int>> threeSum1(vector<int> &arr, int target){
     return vector<vector<int>>(resultSet.begin(), resultSet.end());
 }
 
+// sorting + 2 pointer
+// Time: O(n^2)
+// Space: O(1)
+vector<vector<int>> threeSum2(vector<int> arr, int target){
+    int n = arr.size();
+    vector<vector<int>> resultSet;
+    sort(arr.begin(), arr.end());
+
+    for(int i=0; i<n-3; i++){
+        if(i > 0 && arr[i] == arr[i-1])     continue;
+
+        int l = i + 1, r = n - 1;
+        while(l < r){
+            int sum = arr[i] + arr[l] + arr[r];
+
+            if(sum == target){
+                resultSet.push_back({arr[i], arr[l], arr[r]});
+                
+                while(l < r && arr[l] == arr[l+1]) l++;
+                while(l < r && arr[l] == arr[r-1]) r--;
+    
+                l++;
+                r--;
+            } 
+
+            else if(sum < target)   l++;
+            else    r--;
+        }
+    }
+    return resultSet;
+}
+
 int main(){
     vector<int> arr;
     int ip;
@@ -49,7 +83,9 @@ int main(){
         arr.push_back(ip);
     }
 
-    vector<vector<int>> result = threeSum1(arr, 0);
+    // vector<vector<int>> result = threeSum0(arr);
+    // vector<vector<int>> result = threeSum1(arr, 0);
+    vector<vector<int>> result = threeSum2(arr, 0);
 
     for (auto &triplet : result) {
         for (int val : triplet) {
