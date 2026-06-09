@@ -45,16 +45,41 @@ class LinkedList{
             Node *temp = head;
 
             while(temp != nullptr){
-                cout << temp->data << " -> ";
+                cout << temp->data;
+                if(temp->next == nullptr)   cout << " -> Null";
+                else    cout << " -> ";
                 temp = temp->next;
             }
-            cout << "Null";
         }
 
         // insert at head
-        void insertAtHead(int data){
+        void insertHead(int data){
             Node *newNode = new Node(data, head);
             head = newNode;
+        }
+
+        // insert at last
+        void insertLast(int data){
+            Node *newNode = new Node(data);
+            Node *temp = head;
+            while(temp->next != nullptr){
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+
+        // insert after value
+        void insertAfterValue(int value, int data){
+            Node *temp = head;
+            while(temp != nullptr){
+                if(temp->data == value){
+                    Node *newNode = new Node(data);
+                    newNode->next = temp->next;
+                    temp->next = newNode;
+                    return;
+                }
+                temp = temp->next;
+            }
         }
 
         // delete at head
@@ -69,6 +94,7 @@ class LinkedList{
         // delete last node
         void deletelast(){
             if(head == nullptr) return;
+
             if(head->next == nullptr){
                 delete head;
                 head = nullptr;
@@ -81,6 +107,29 @@ class LinkedList{
             }
             delete temp->next;
             temp->next = nullptr;
+        }
+
+        // delete by value
+        void deleteByValue(int value){
+            if(head == nullptr) return;
+
+            if(head->data == value){
+                Node *temp = head;
+                head = head->next;
+                delete temp;
+                return;
+            }
+
+            Node *current = head;
+            while(current->next != nullptr){
+                if(current->next->data == value){
+                    Node *temp = current->next;
+                    current->next = current->next->next;
+                    delete temp;
+                    return;
+                }
+                current = current->next;
+            }
         }
 
         // find length of LL
@@ -116,9 +165,12 @@ int main(){
 
     LinkedList ll;
     ll.createLL(arr);
-    ll.insertAtHead(1);
-    ll.deleteHead();
-    ll.deletelast();
+    ll.insertHead(1);
+    // ll.deleteHead();
+    ll.insertLast(32);
+    // ll.deletelast();
+    ll.insertAfterValue(55, 99);
+    // ll.deleteByValue(12);
     ll.printLL();
     cout << endl;
     cout << ll.findLength() << endl;
