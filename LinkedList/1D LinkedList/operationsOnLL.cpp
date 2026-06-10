@@ -27,17 +27,16 @@ class LinkedList{
         }
 
         // convert arr/vector to LL
-        Node *createLL(vector<int> &arr){
+        void createLL(vector<int> &arr){
             head = new Node(arr[0]);
             Node *current = head;
 
-            if(arr.empty())     return nullptr;
+            if(arr.empty())     return;
 
             for(int i=1; i<arr.size(); i++){
                 current->next = new Node(arr[i]);
                 current = current->next;
             }
-            return head;
         }
 
         // print LL
