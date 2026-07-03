@@ -1,11 +1,10 @@
-# DSA Practice Repository (C++ + VS Code)
+# DSA Practice
 
-This repository contains **Data Structures & Algorithms (DSA)** practice solutions written in **C++ (GNU++17)**.
-It is designed to be **clean, reproducible, and beginner‑friendly**, so that **anyone can clone the repo and run the code without confusion**.
+Personal repository for Data Structures & Algorithms practice in C++17. Cross-platform build setup — works on macOS, Linux, and Windows without modifying source files.
 
 ---
 
-## 📁 Repository Structure
+## Structure
 
 ```
 DSA-Practice/
@@ -15,161 +14,131 @@ DSA-Practice/
 │   └── Medium/
 │
 ├── Basics/
+├── Binary Search/
+├── Bits Manipulation/
+├── LinkedList/
 ├── Sorting/
+├── Strings/
 │
-├── bin/            # Compiled executables (ignored by Git)
-├── input.txt       # Runtime input file (local only)
-├── output.txt      # Runtime output file (local only)
+├── include/
+│   └── bits/
+│       └── stdc++.h
+│
+├── bin/            # compiled executables (ignored)
+├── input.txt       # runtime input (ignored)
+├── output.txt      # runtime output (ignored)
+│
+├── .vscode/
+│   ├── tasks.json
+│   └── c_cpp_properties.json
 │
 ├── .gitignore
 └── README.md
 ```
 
-### Important notes
-
-* **Only `.cpp` files are tracked in Git**
-* `bin/`, `.vscode/`, `input.txt`, and `output.txt` are **local‑only**
-* This keeps the repository **clean and platform‑independent**
+**Tracked:** source files, `include/`, `.vscode/`, `.gitignore`, `README.md`
+**Ignored:** `bin/`, `input.txt`, `output.txt`, `test/`, compiled binaries
 
 ---
 
-## 🧠 Design Decisions (Why things are done this way)
+## Requirements
 
-### 1️⃣ Why `bin/` exists
+C++17-compatible compiler:
 
-* All compiled executables are placed in `bin/`
-* Source directories remain clean (only `.cpp` files)
-* `bin/` is ignored via `.gitignore`
+- Apple Clang (macOS)
+- GCC (Linux)
+- LLVM Clang (Linux)
+- MSYS2 / MinGW GCC (Windows)
 
-### 2️⃣ Why `input.txt` and `output.txt` are ignored
+VS Code recommended.
 
-* Used for **local testing** and **EOF‑based input**
-* Prevents accidental commits of test data
-* You can modify them freely without affecting Git
+### Setup
 
-### 3️⃣ Why `.vscode/` is ignored
+**macOS**
 
-* Editor‑specific configuration
-* Each developer may have different preferences
-* Ignored to keep repo editor‑agnostic
+```bash
+xcode-select --install
+```
 
----
-
-## 🛠 Prerequisites
-
-### Required
-
-* **C++ Compiler** supporting `GNU++17`
-* **VS Code** (recommended)
-
-### Compiler installation
-
-#### Linux (Ubuntu / Debian)
+**Linux**
 
 ```bash
 sudo apt update
 sudo apt install g++
 ```
 
-#### macOS (using Homebrew)
+**Windows**
+
+Install MSYS2 or MinGW-w64, ensure `g++` is on PATH.
+
+**Verify**
 
 ```bash
-brew install gcc
-```
-
-#### Windows
-
-* Install **MinGW‑w64** or **MSYS2**
-* Ensure `g++` is available in PATH
-
-Verify installation:
-
-```bash
+clang++ --version
 g++ --version
 ```
 
 ---
 
-## 🧪 How Input & Output Work
+## include/bits/stdc++.h
 
-### input.txt
+`bits/stdc++.h` is a GCC-only header, not available on Apple Clang. This repo bundles its own standard-headers-only implementation under `include/bits/stdc++.h`, exposed to the compiler via `-I include`. Source files use `#include <bits/stdc++.h>` unchanged on every platform.
 
-* Place all required input in `input.txt`
-* Supports **multiple values, arrays, EOF‑based input**
+---
 
-Example:
+## Input / Output
+
+`input.txt` holds program input (supports multiple values, arrays, EOF-based input). `output.txt` receives program output. Both are local-only and git-ignored.
+
+Example `input.txt`:
 
 ```
 5
 1 2 3 4 5
 ```
 
-### output.txt
+---
 
-* Program output is redirected here automatically
+## Build & Run
 
-This allows:
+Open any `.cpp` file, then:
 
-* Easy debugging
-* Clean separation of code and input/output
+- macOS: `⌘ + Shift + B`
+- Linux / Windows: `Ctrl + Shift + B`
+
+This compiles to `bin/`, runs the binary with `input.txt` as stdin, and writes stdout to `output.txt`.
+
+```
+.cpp file → Shift+B → compile → bin/ → run with input.txt → output.txt
+```
 
 ---
 
-## ▶️ How to Compile & Run Code (VS Code)
+## VS Code Configuration
 
-### Recommended Method (Ctrl + Shift + B)
-
-1. Open **any `.cpp` file** in the repository
-2. Press:
-
-   ```
-   Ctrl + Shift + B
-   ```
-3. This will:
-
-   * Compile the file
-   * Store executable in `bin/`
-   * Run it using `input.txt`
-   * Write output to `output.txt`
-
-No manual terminal commands required.
-
----
-
-## ⚙️ VS Code Configuration (Reference)
-
-> These files are **NOT committed to Git**, but shown here for reference.
-
-### `c_cpp_properties.json`
+`c_cpp_properties.json`:
 
 ```json
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
-            "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64"
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
         }
     ],
     "version": 4
 }
 ```
 
-Used for:
-
-* IntelliSense
-* Error checking
-* Code navigation
-
----
-
-### `tasks.json`
+`tasks.json`:
 
 ```json
 {
@@ -181,12 +150,9 @@ Used for:
             "command": "bash",
             "args": [
                 "-c",
-                "mkdir -p \"${workspaceFolder}/bin\" && g++ -std=c++17 \"${file}\" -o \"${workspaceFolder}/bin/${fileBasenameNoExtension}\""
+                "mkdir -p \"${workspaceFolder}/bin\" && clang++ -std=c++17 -Wall -Wextra -Wshadow -O2 -I \"${workspaceFolder}/include\" \"${file}\" -o \"${workspaceFolder}/bin/${fileBasenameNoExtension}\""
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": false
-            },
+            "group": { "kind": "build", "isDefault": false },
             "problemMatcher": ["$gcc"]
         },
         {
@@ -195,77 +161,65 @@ Used for:
             "command": "bash",
             "args": [
                 "-c",
-                "mkdir -p \"${workspaceFolder}/bin\" && g++ -std=c++17 \"${file}\" -o \"${workspaceFolder}/bin/${fileBasenameNoExtension}\" && \"${workspaceFolder}/bin/${fileBasenameNoExtension}\" < input.txt > output.txt"
+                "mkdir -p \"${workspaceFolder}/bin\" && clang++ -std=c++17 -Wall -Wextra -Wshadow -O2 -I \"${workspaceFolder}/include\" \"${file}\" -o \"${workspaceFolder}/bin/${fileBasenameNoExtension}\" && \"${workspaceFolder}/bin/${fileBasenameNoExtension}\" < input.txt > output.txt"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": { "kind": "build", "isDefault": true },
             "problemMatcher": ["$gcc"]
         }
     ]
 }
 ```
 
----
-
-## ⌨️ Keyboard Shortcuts
-
-| Action        | Shortcut                                |
-| ------------- | --------------------------------------- |
-| Compile only  | `Ctrl + Shift + B` → select **compile** |
-| Compile & Run | `Ctrl + Shift + B` (default)            |
-| Open Terminal | `Ctrl + ``                              |
+Both files are tracked in git so the build setup is identical after every clone.
 
 ---
 
-## 🧹 Git Hygiene (Important)
+## Compile Flags
 
-The following are intentionally **NOT tracked**:
-
-* `bin/`
-* `.vscode/`
-* `input.txt`
-* `output.txt`
-* Executables (`a.out`, `*.exe`, etc.)
-
-This ensures:
-
-* Clean commit history
-* No OS/editor pollution
-* Easy collaboration
+| Flag | Purpose |
+|---|---|
+| `-std=c++17` | C++17 standard |
+| `-Wall -Wextra -Wshadow` | Compiler warnings |
+| `-O2` | Optimization |
+| `-I include` | Resolves portable `bits/stdc++.h` |
 
 ---
 
-## 🚀 How to Use This Repo
+## Platform Compatibility
 
-1. Clone the repository
-
-   ```bash
-   git clone <repo-url>
-   cd DSA-Practice
-   ```
-
-2. Open in VS Code
-
-   ```bash
-   code .
-   ```
-
-3. Write or modify any `.cpp` file
-
-4. Put input in `input.txt`
-
-5. Press `Ctrl + Shift + B`
-
-6. Check results in `output.txt`
+| OS | Compiler |
+|---|---|
+| macOS | Apple Clang |
+| Ubuntu | GCC |
+| Linux | Clang |
+| Windows | MinGW / MSYS2 |
 
 ---
 
-## ✅ Final Notes
+## Keyboard Shortcuts
 
-* This repo is **Linux‑first**, but works on **Windows & macOS**
-* Uses **standard C++17**
-* Designed for **DSA practice, competitive programming, and interviews**
+| Action | macOS | Linux / Windows |
+|---|---|---|
+| Compile only | `⌘ + Shift + B` → compile | `Ctrl + Shift + B` → compile |
+| Compile & run | `⌘ + Shift + B` | `Ctrl + Shift + B` |
+| Terminal | `` Ctrl + ` `` | `` Ctrl + ` `` |
 
-Happy Coding 🚀
+---
+
+## Git Hygiene
+
+**Tracked:** source files, `include/`, `.vscode/tasks.json`, `.vscode/c_cpp_properties.json`, `.gitignore`, `README.md`
+
+**Ignored:** `bin/`, `input.txt`, `output.txt`, `test/`, `a.out`, `*.exe`
+
+---
+
+## Usage
+
+```bash
+git clone <repo-url>
+cd DSA-Practice
+code .
+```
+
+Write/edit a `.cpp` file, populate `input.txt`, build with `Shift+B`, check `output.txt`.

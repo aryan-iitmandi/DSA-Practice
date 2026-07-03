@@ -1,31 +1,31 @@
 # ===============================
-# Local input / output files /folders
+# Local input / output files
 # ===============================
 input.txt
 output.txt
-/test
+test/
 
 # ===============================
-# Build directory (executables)
+# Build directory
 # ===============================
 bin/
 
 # ===============================
-# Common compiled outputs
+# Compiled outputs
 # ===============================
 a.out
 *.out
 *.exe
-
-# ===============================
-# Object files
-# ===============================
 *.o
 
 # ===============================
-# VS Code (ignore completely)
+# VS Code
+# Ignore everything except the
+# project configuration
 # ===============================
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/c_cpp_properties.json
 
 # ===============================
 # OS junk
